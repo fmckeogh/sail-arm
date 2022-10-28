@@ -65,6 +65,9 @@ tar -xf linux-4.14.92.tar.xz
 echo "Copying config file"
 cp sail-arm-boot-master/.config linux-4.14.92/
 
+echo "Patching DTC lexer"
+cp dtc-lexer.lex.c_shipped linux-4.14.92/scripts/dtc/
+
 echo "Building Linux"
 make -C linux-4.14.92 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -k -j 8
 
